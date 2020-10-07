@@ -26,23 +26,31 @@
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
 
 <div class="container-fluid">
+  {% if content.column1 or content.contentmain or content.column2 %}
   <div class="row">
+    {% if content.column1 %}
     <div class="col-md-3 radix-layouts-column1 panel-panel">
       <div {{ region_attributes.column1.addClass('panel-panel-inner') }}>
         {{ content.column1 }}
       </div>
     </div>
+    {% endif %}
+    {% if content.contentmain %}
     <div class="col-md-6 radix-layouts-content panel-panel">
       <div {{ region_attributes.contentmain.addClass('panel-panel-inner') }}>
         {{ content.contentmain }}
       </div>
     </div>
+    {% endif %}
+    {% if content.column2 %}
     <div class="col-md-3 radix-layouts-column2 panel-panel">
       <div {{ region_attributes.column2.addClass('panel-panel-inner') }}>
         {{ content.column2 }}
       </div>
     </div>
+    {% endif %}
   </div>
+  {% endif %}
 </div>
   
 </div><!-- /.whelan -->

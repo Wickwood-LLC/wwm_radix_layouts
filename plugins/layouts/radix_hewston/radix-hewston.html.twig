@@ -26,36 +26,50 @@
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
 
   <div class="container-fluid">
+    {% if content.slider or content.slidergutter %}
     <div class="row">
+      {% if content.slider %}
       <div class="col-md-8 radix-layouts-slider panel-panel">
         <div {{ region_attributes.slider.addClass('panel-panel-inner') }}>
           {{ content.slider }}
         </div>
       </div>
+      {% endif %}
+      {% if content.slidergutter %}
       <div class="col-md-4 radix-layouts-slidergutter panel-panel">
         <div {{ region_attributes.slidergutter.addClass('panel-panel-inner') }}>
           {{ content.slidergutter }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
     
+    {% if content.column1 or content.column2 or content.column3 %}
     <div class="row">
+      {% if content.column1 %}
       <div class="col-md-4 radix-layouts-column1 panel-panel">
         <div {{ region_attributes.column1.addClass('panel-panel-inner') }}>
           {{ content.column1 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.column2 %}
       <div class="col-md-4 radix-layouts-column2 panel-panel">
         <div {{ region_attributes.column2.addClass('panel-panel-inner') }}>
           {{ content.column2 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.column3 %}
       <div class="col-md-4 radix-layouts-column3 panel-panel">
         <div {{ region_attributes.column3.addClass('panel-panel-inner') }}>
           {{ content.column3 }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
   </div>
   
 </div><!-- /.hewston -->

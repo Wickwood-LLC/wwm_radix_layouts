@@ -26,36 +26,50 @@
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
 
   <div class="container-fluid">
+    {% if content.column1 or content.column2 %}
     <div class="row">
+      {% if content.column1 %}
       <div class="col-md-6 radix-layouts-column1 panel-panel">
         <div {{ region_attributes.column1.addClass('panel-panel-inner') }}>
           {{ content.column1 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.column2 %}
       <div class="col-md-6 radix-layouts-column2 panel-panel">
         <div {{ region_attributes.column2.addClass('panel-panel-inner') }}>
           {{ content.column2 }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
     
+    {% if content.secondarycolumn1 or content.secondarycolumn2 or content.secondarycolumn3 %}
     <div class="row">
+      {% if content.secondarycolumn1 %}
       <div class="col-md-4 radix-layouts-secondarycolumn1 panel-panel">
         <div {{ region_attributes.secondarycolumn1.addClass('panel-panel-inner') }}>
           {{ content.secondarycolumn1 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.secondarycolumn2 %}
       <div class="col-md-4 radix-layouts-secondarycolumn2 panel-panel">
         <div {{ region_attributes.secondarycolumn2.addClass('panel-panel-inner') }}>
           {{ content.secondarycolumn2 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.secondarycolumn3 %}
       <div class="col-md-4 radix-layouts-secondarycolumn3 panel-panel">
         <div {{ region_attributes.secondarycolumn3.addClass('panel-panel-inner') }}>
           {{ content.secondarycolumn3 }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
   </div>
   
 </div><!-- /.sanderson -->

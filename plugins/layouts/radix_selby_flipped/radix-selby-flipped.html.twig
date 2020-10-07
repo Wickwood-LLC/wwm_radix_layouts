@@ -28,6 +28,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8 panel-panel">
+        {% if content.contentheader %}
         <div class="row">
           <div class="col-md-12 radix-layouts-contentheader panel-panel">
             <div {{ region_attributes.contentheader.addClass('panel-panel-inner') }}>
@@ -35,31 +36,42 @@
             </div>
           </div>
         </div>
+        {% endif %}
+        {% if content.contentcolumn1 or content.contentcolumn2 %}
         <div class="row">
+          {% if content.contentcolumn1 %}
           <div class="col-md-6 radix-layouts-contentcolumn1 panel-panel">
-            <div {{ region_attributes.contentheader.addClass('panel-panel-inner') }}>
+            <div {{ region_attributes.contentcolumn1.addClass('panel-panel-inner') }}>
                 {{ content.contentcolumn1 }}
             </div>
           </div>
+          {% endif %}
+          {% if content.contentcolumn2 %}
           <div class="col-md-6 radix-layouts-contentcolumn2 panel-panel">
-            <div {{ region_attributes.contentheader.addClass('panel-panel-inner') }}>
+            <div {{ region_attributes.contentcolumn2.addClass('panel-panel-inner') }}>
                 {{ content.contentcolumn2 }}
             </div>
           </div>
+          {% endif %}
         </div>
+        {% endif %}
+        {% if content.contentfooter %}
         <div class="row">
           <div class="col-md-12 radix-layouts-contentfooter panel-panel">
-            <div {{ region_attributes.contentheader.addClass('panel-panel-inner') }}>
+            <div {{ region_attributes.contentfooter.addClass('panel-panel-inner') }}>
                 {{ content.contentfooter }}
             </div>
           </div>
         </div>
+        {% endif %}
       </div>
+      {% if content.sidebar %}
       <div class="col-md-4 radix-layouts-sidebar panel-panel">
         <div {{ region_attributes.sidebar.addClass('panel-panel-inner') }}>
           {{ content.sidebar }}
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 

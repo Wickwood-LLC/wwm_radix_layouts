@@ -26,6 +26,7 @@
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
 
   <div class="container-fluid">
+    {% if content.header %}
     <div class="row">
       <div class="col-md-12 radix-layouts-header panel-panel">
         <div {{ region_attributes.header.addClass('panel-panel-inner') }}>
@@ -33,24 +34,33 @@
         </div>
       </div>
     </div>
+    {% endif %}
     
+    {% if content.column1 or content.column2 or content.column3 %}
     <div class="row">
+      {% if content.column1 %}
       <div class="col-md-4 radix-layouts-column1 panel-panel">
         <div {{ region_attributes.column1.addClass('panel-panel-inner') }}>
           {{ content.column1 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.column2 %}
       <div class="col-md-4 radix-layouts-column2 panel-panel">
         <div {{ region_attributes.column2.addClass('panel-panel-inner') }}>
           {{ content.column2 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.column3 %}
       <div class="col-md-4 radix-layouts-column3 panel-panel">
         <div {{ region_attributes.column3.addClass('panel-panel-inner') }}>
           {{ content.column3 }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
   </div>
   
 </div><!-- /.geary -->

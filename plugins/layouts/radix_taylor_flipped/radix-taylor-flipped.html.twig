@@ -36,23 +36,31 @@
       </div>
     {% endif %}
 
+    {% if content.half or content.quarter1 or content.quarter2 %}
     <div class="row">
+      {% if content.quarter1 %}
       <div class="col-md-3 radix-layouts-quarter1 panel-panel">
         <div {{ region_attributes.quarter1.addClass('panel-panel-inner') }}>
           {{ content.quarter1 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.quarter2 %}
       <div class="col-md-3 radix-layouts-quarter2 panel-panel">
         <div {{ region_attributes.quarter2.addClass('panel-panel-inner') }}>
           {{ content.quarter2 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.half %}
       <div class="col-md-6 radix-layouts-half panel-panel">
         <div {{ region_attributes.half.addClass('panel-panel-inner') }}>
           {{ content.half }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
     
     {% if content.footer %}
       <div class="row">

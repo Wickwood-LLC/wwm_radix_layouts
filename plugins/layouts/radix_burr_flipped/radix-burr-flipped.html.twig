@@ -26,18 +26,24 @@
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
   
   <div class="container-fluid">
+    {% if content.sidebar or content.contentmain %}
     <div class="row">
+      {% if content.contentmain %}
       <div class="col-md-8 radix-layouts-content panel-panel">
         <div {{ region_attributes.contentmain.addClass('panel-panel-inner') }}>
           {{ content.contentmain }}
         </div>
       </div>
+      {% endif %}
+      {% if content.sidebar %}
       <div class="col-md-4 radix-layouts-sidebar panel-panel">
         <div {{ region_attributes.sidebar.addClass('panel-panel-inner') }}>
           {{ content.sidebar }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
   
   </div>
 </div><!-- /.burr-flipped -->

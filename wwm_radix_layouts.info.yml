@@ -1,0 +1,7 @@
+type: module
+name: WWM Radix Layouts
+description: Radix Layouts, but with better region rendering.
+package: Layout
+core: 8.x
+dependencies:
+  - drupal:layout_discovery

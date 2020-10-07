@@ -26,6 +26,7 @@
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
 
   <div class="container-fluid">
+  {% if content.header %}
     <div class="row">
       <div class="col-md-12 radix-layouts-header panel-panel">
         <div {{ region_attributes.header.addClass('panel-panel-inner') }}>
@@ -33,30 +34,42 @@
         </div>
       </div>
     </div>
+    {% endif %}
 
+    {% if content.quarter1 or content.quarter2 or content.quarter3 or content.quarter4 %}
     <div class="row">
+      {% if content.quarter1 %}
       <div class="col-md-3 radix-layouts-quarter1 panel-panel">
         <div {{ region_attributes.quarter1.addClass('panel-panel-inner') }}>
           {{ content.quarter1 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.quarter2 %}
       <div class="col-md-3 radix-layouts-quarter2 panel-panel">
         <div {{ region_attributes.quarter2.addClass('panel-panel-inner') }}>
           {{ content.quarter2 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.quarter3 %}
       <div class="col-md-3 radix-layouts-quarter3 panel-panel">
         <div {{ region_attributes.quarter3.addClass('panel-panel-inner') }}>
           {{ content.quarter3 }}
         </div>
       </div>
+      {% endif %}
+      {% if content.quarter4 %}
       <div class="col-md-3 radix-layouts-quarter4 panel-panel">
         <div {{ region_attributes.quarter4.addClass('panel-panel-inner') }}>
           {{ content.quarter4 }}
         </div>
       </div>
+      {% endif %}
     </div>
+    {% endif %}
 
+    {% if content.footer %}
     <div class="row">
       <div class="col-md-12 radix-layouts-footer panel-panel">
         <div {{ region_attributes.footer.addClass('panel-panel-inner') }}>
@@ -64,6 +77,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
 
 </div><!-- /.taylor -->
